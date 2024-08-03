@@ -1,0 +1,100 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <style>
+    * {
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0%;
+      width: 100%;
+      height: fit-content;
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+
+  <div style="display: flex; margin-top: 2%; justify-content: space-between">
+    <a href="/dashboard">
+      <img
+        width="30"
+        src="https://img.icons8.com/windows/32/40C057/back.png"
+        alt="back"
+        style="padding-right: 1%"
+      />
+    </a>
+
+    <h2>My Machines</h2>
+
+    <a href="/ttincome" style="padding-right: 3%"
+      ><img
+        width="30"
+        src="https://img.icons8.com/ios/50/40C057/receive-euro.png"
+        alt="receive-euro"
+    /></a>
+  </div>
+  <br />
+  {%if mymachine %} {% for machine in mymachine %}
+  <hr />
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      font-family: sans-serif;
+      border-radius: 10px;
+      font-size: 16px;
+      color: rgb(0, 0, 0);
+      padding: 3%;
+      /* padding-right: 5%; */
+      max-height: fit-content;
+    "
+  >
+    <div style="display: flex; justify-content: space-between; width: 100%">
+      <p style="font-weight: 600">Machine: {{machine.machine_name}}</p>
+
+      <div>
+        <p style="font-size: 12px">{{machine.purchase_date}}</p>
+        <p style="font-size: 12px">To: {{machine.end_date}}</p>
+      </div>
+    </div>
+    <img
+      width="62"
+      height="62"
+      src="https://img.icons8.com/color/48/tractor.png"
+      alt="tractor"
+    />
+    <p>Price: {{machine.price}}</p>
+    <p>Daily income: {{machine.income}}</p>
+    <div style="display: flex; justify-content: space-between; width: 80%">
+      <p>Remaining days: {{machine.remaining_days}}</p>
+
+      <a href="/receive/{{machine.income}}"
+        ><button
+          style="
+            height: 40px;
+            background-color: rgb(26, 159, 53);
+            border: none;
+            border-radius: 10px;
+            width: 200%;
+            font-size: 15px;
+            color: rgb(255, 255, 255);
+          "
+        >
+          Recieve
+        </button></a
+      >
+    </div>
+  </div>
+  <hr />
+  {% endfor %} {%else%}
+  <div style="display: flex; justify-content: center; width: 100%">
+    <img src="{%static 'cube.png' %}" alt="" width="70%" style="opacity: 80%" />
+  </div>
+
+  {%endif%}
+</html>

@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <style>
+    * {
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0%;
+      width: 100%;
+      height: fit-content;
+      background-color: white;
+    }
+  </style>
+
+  <div style="display: flex; margin-top: 2%; justify-content: space-between">
+    <a href="/dashboard">
+      <img
+        width="30"
+        src="https://img.icons8.com/windows/32/40C057/back.png"
+        alt="back"
+        style="padding-left: 1%"
+      />
+    </a>
+
+    <h2 style="padding-right: 6%">Recharge Record</h2>
+
+    <h2></h2>
+  </div>
+  <br />
+  {%if rec %} {% for payment in rec %}
+  <hr />
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      font-family: sans-serif;
+      border-radius: 13px;
+      font-size: 15px;
+      color: rgb(44, 44, 44);
+      padding: 2%;
+      height: min-content;
+    "
+  >
+    <div style="display: flex; justify-content: space-between; width: 100%">
+      <p style="font-weight: 600;">Amount: N{{payment.amount}}</p>
+
+      <p style="font-size: 10px">Date: {{payment.date_created}}</p>
+    </div>
+    <img
+      width="50"
+      height="50"
+      src="https://img.icons8.com/ios/50/40C057/buy-for-cash.png"
+      alt="buy-for-cash"
+    />
+    <br />
+    <p>Status: <span style="color: rgb(26, 159, 53)">Completed</span></p>
+    <br />
+    <p>
+      Payment Ref:
+      <span style="font-size: 10px; word-wrap: break-word"
+        >{{payment.ref}}</span
+      >
+    </p>
+  </div>
+  <hr />
+  {% endfor %} {%else%}
+  <div style="display: flex; justify-content: center; width: 100%">
+    <img src="{%static 'cube.png' %}" alt="" width="70%" style="opacity: 80%" />
+  </div>
+
+  {%endif%}
+</html>

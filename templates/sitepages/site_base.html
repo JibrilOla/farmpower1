@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ptitle}}</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/farmpower/templates/favicon.ico"
+    />
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+  </head>
+
+  <style>
+    * {
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0%;
+      width: 100%;
+      height: fit-content;
+    }
+    .base {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      background: rgb(255, 255, 255);
+      position: fixed;
+      top: 90%;
+      height: 10%;
+      width: 100%;
+      padding: 20px;
+    }
+  </style>
+  {%load static%}
+  <body>
+    {%block homepage_content%} {%endblock%}
+    <!-- BOTTOM NAV -->
+    <div class="base">
+      {% if request.path == "/home/"%}
+      <a
+        href="/home"
+        style="text-align: center; text-decoration: none; padding-top: 3%"
+      >
+        <img
+          width="20"
+          height="20"
+          src="https://img.icons8.com/ios-filled/50/40C057/home.png"
+          alt=""
+        />
+        <p style="font-family: sans-serif; color: rgb(47, 150, 29)">Home</p></a
+      >
+      {%else%}
+      <a
+        href="/home"
+        style="
+          text-align: center;
+          text-decoration: none;
+          color: black;
+          padding-top: 3%;
+        "
+      >
+        <img
+          width="25"
+          height="25"
+          src="https://img.icons8.com/windows/32/1A1A1A/home.png"
+          alt=""
+        />
+
+        <p style="font-family: sans-serif">Home</p>
+      </a>
+
+      {%endif%} {% if request.path == "/products/" %}
+      <a
+        href="/products"
+        style="
+          text-align: center;
+          text-decoration: none;
+          color: rgb(47, 150, 29);
+          padding-top: 3%;
+        "
+      >
+        <img
+          width="25"
+          height="25"
+          src="https://img.icons8.com/ios-filled/50/40C057/weak-financial-growth.png"
+        />
+        <p style="font-family: sans-serif">Machine</p>
+      </a>
+      {%else%}
+      <a
+        href="/products"
+        style="
+          text-align: center;
+          text-decoration: none;
+          color: rgb(0, 0, 0);
+          padding-top: 3%;
+        "
+      >
+        <img
+          width="25"
+          height="25"
+          src="https://img.icons8.com/fluency-systems-regular/48/1A1A1A/economic-growth-.png"
+        />
+        <p style="font-family: sans-serif">Machine</p>
+      </a>
+      {%endif%} {% if request.path == "/team/" %}
+      <a
+        href="/team"
+        style="
+          text-align: center;
+          text-decoration: none;
+          color: rgb(47, 150, 29);
+          padding-top: 3%;
+        "
+      >
+        <img
+          width="25"
+          height="25"
+          src="https://img.icons8.com/fluency-systems-filled/48/40C057/conference-call.png"
+        />
+        <p style="font-family: sans-serif">Team</p>
+      </a>
+      {%else%}
+      <a
+        href="/team"
+        style="
+          text-align: center;
+          text-decoration: none;
+          color: black;
+          padding-top: 3%;
+        "
+      >
+        <img
+          width="25"
+          height="25"
+          src="https://img.icons8.com/fluency-systems-regular/48/1A1A1A/conference-call--v1.png"
+        />
+        <p style="font-family: sans-serif">Team</p>
+      </a>
+      {%endif%} {% if request.path == "/dashboard/" %}
+      <a
+        href="/dashboard"
+        style="
+          text-align: center;
+          text-decoration: none;
+          color: rgb(47, 150, 29);
+          padding-top: 3%;
+        "
+      >
+        <img
+          width="25"
+          height="25"
+          src="https://img.icons8.com/fluency-systems-filled/48/40C057/user.png"
+        />
+        <p style="font-family: sans-serif">Mine</p>
+      </a>
+      {%else%}
+      <a
+        href="/dashboard"
+        style="
+          text-align: center;
+          text-decoration: none;
+          color: rgb(0, 0, 0);
+          padding-top: 3%;
+        "
+      >
+        <img
+          width="25"
+          height="25"
+          src="https://img.icons8.com/fluency-systems-regular/48/1A1A1A/user--v1.png"
+        />
+        <p style="font-family: sans-serif">Mine</p>
+      </a>
+      {%endif%}
+    </div>
+  </body>
+</html>

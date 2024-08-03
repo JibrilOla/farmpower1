@@ -1,0 +1,129 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <style>
+    body {
+      height: fit-content;
+      background: rgb(244, 244, 244);
+    }
+    .helptext,
+    li {
+      color: rgb(244, 244, 244);
+      font-size: 1px;
+    }
+    .login {
+      /* margin-top: 40%; */
+      margin-left: 3%;
+    }
+    label {
+      display: block;
+      font-size: 23px;
+      font-family: sans-serif;
+      padding-bottom: 2%;
+    }
+    input {
+      /* width: 85%; */
+      outline: none;
+      border: none;
+      padding-left: 4%;
+      font-size: 20px;
+    }
+    input {
+      display: flex;
+      border: 2px solid gray;
+      border-radius: 10px;
+      height: fit-content;
+
+      padding: 2%;
+      width: 90%;
+      background: white;
+    }
+    i {
+      padding-top: 1%;
+      color: rgb(26, 159, 53);
+    }
+    button {
+      width: 95%;
+      height: 40px;
+      font-size: 17px;
+      border-radius: 40px;
+      border: none;
+      background: rgb(26, 159, 53);
+      color: white;
+    }
+  </style>
+
+  <div
+    style="
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <img src="{%static 'farm-logo.png' %}" alt="" style='width: 70%';
+    box-shadow: 0 10px 10px black; opacity: 100%" />
+  </div>
+  {%if messages%}
+  <ul class="messages">
+    {%for message in messages%} {%if message.tags%}
+    <p
+      class="{{message.tag}}"
+      style="
+        color: rgb(0, 255, 38);
+        background: red;
+        font-size: 15px;
+        height: 30px;
+        width: 90%;
+        text-align: center;
+      "
+    >
+      {%endif%} {{message}}
+    </p>
+    {%endfor%}
+  </ul>
+  {%endif%}
+  <h3 style="font-size: 30px">Register</h3>
+  <div>
+    <form action="" method="POST" style="height: 100%; width: 100%">
+      {% csrf_token %}
+      <div>{{form.as_p}}</div>
+      <label for="ref_code">Referral Code:</label>
+      <input
+        type="text"
+        name="ref_code"
+        value="{{code}}"
+        required
+        readonly
+        id="ref_code"
+      /><br /><br />
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <p>Already have an account? Login <a href="/login">here</a></p>
+  <br />
+
+  <div style="width: 100%; height: 100%">
+    <a href="/customerservice">
+      <img
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        width="50"
+        height="50"
+        style="
+          position: relative;
+          left: 3%;
+          top: 3%;
+          box-shadow: 0px 3px 5px black;
+        "
+        src="https://img.icons8.com/ios-filled/50/40C057/online-support.png"
+        alt="online-support"
+      />
+    </a>
+  </div>
+</html>

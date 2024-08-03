@@ -1,0 +1,250 @@
+{%extends 'sitepages/site_base.html'%} {%block homepage_content%}
+
+<style>
+  .hr {
+    border-top: 3px solid rgb(22, 192, 64);
+    width: 100%;
+  }
+</style>
+<section style="background-color: rgb(255, 255, 255); height: 100%">
+  <h2 style="text-align: center">My Team</h2>
+
+  <p
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+    style="position: absolute; top: 0%; right: 2%; color: red"
+  >
+    Rules
+  </p>
+
+  <div style="display: flex; justify-content: center">
+    <img
+      width="80"
+      height="80"
+      src="https://img.icons8.com/ios/50/40C057/organization-chart-people.png"
+      alt="organization-chart-people"
+    />
+  </div>
+  <h2
+    style="
+      color: #000000;
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 5%;
+    "
+  >
+    Invite Code: {{refcode}}
+  </h2>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    "
+  >
+    <div
+      style="
+        width: 80%;
+        font-size: 20px;
+        color: rgb(76, 76, 76);
+        display: flex;
+        justify-content: center;
+        border-radius: 10px;
+        background-color: rgba(0, 255, 255, 0.277);
+      "
+    >
+      <img
+        width="30"
+        height="30"
+        src="https://img.icons8.com/ios-filled/50/40C057/link--v1.png"
+        alt="link--v1"
+      />
+      <p style="font-size: 20px">http://{{domain}}/register/{{refcode}}</p>
+    </div>
+  </div>
+  <br />
+
+  <div style="display: flex">
+    <div style="width: 100%; display: flex; flex-direction: column">
+      <h6 style="text-align: center">Total Team Expenditure</h6>
+      <h4 style="text-align: center">N{{trecommended_revenue}}.00</h4>
+    </div>
+    <div style="width: 100%; display: flex; flex-direction: column">
+      <h6 style="text-align: center">Total Team Comission</h6>
+      <h4 style="text-align: center">N{{tincome}}.00</h4>
+    </div>
+  </div>
+  <br />
+
+  <div style="height: fit-content">
+    <h3
+      style="
+        color: #000000;
+        font-family: sans-serif;
+        text-align: center;
+        padding-top: 5%;
+      "
+    >
+      Team Members
+    </h3>
+    <div class="hr"></div>
+  </div>
+  <br />
+  {% if my_recs %}
+  <div
+    class="divide"
+    style="display: flex; width: 100%; justify-content: space-between"
+  >
+    <span style="width: 50%">
+      <h6 style="text-align: center; width: 70%">
+        Total Team Members({{num_recs}})
+      </h6>
+
+      <ul
+        style="
+          font-size: 18px;
+          color: rgb(0, 0, 0);
+          padding: 15px;
+          font-family: sans-serif;
+        "
+      >
+        {% for p in my_recs %}
+        <div style="display: flex">
+          <div style="width: 100%">
+            <div style="display: flex; padding-top: 7px">
+              <img
+                width="30"
+                height="35"
+                src="https://img.icons8.com/fluency-systems-regular/48/40C057/user-group-man-woman.png"
+                alt="user-group-man-woman"
+                style="padding-bottom: 10px"
+              />
+
+              <p style="padding-left: 2px">{{p.user}}</p>
+            </div>
+            <p style="font-size: 10px">{{p.created}}</p>
+          </div>
+        </div>
+        <div class="hr"></div>
+        <br /><br />
+        {%endfor%}
+      </ul></span
+    >
+    <span style="width: 50%">
+      <h6 style="text-align: center; width: 70%">
+        Active Team Members({{num_recs2}})
+      </h6>
+
+      <ul
+        style="
+          font-size: 18px;
+          color: rgb(0, 0, 0);
+          padding: 15px;
+          font-family: sans-serif;
+        "
+      >
+        {% for q in my_recs2 %}
+        <div style="display: flex">
+          <div style="width: 100%">
+            <div style="display: flex; padding-top: 7px">
+              <img
+                width="30"
+                height="35"
+                src="https://img.icons8.com/fluency-systems-regular/48/40C057/user-group-man-woman.png"
+                alt="user-group-man-woman"
+                style="padding-bottom: 10px"
+              />
+
+              <p style="padding-left: 2px">{{q.user__username}}</p>
+              <img
+                width="25"
+                height="25"
+                src="https://img.icons8.com/ios-glyphs/30/40C057/verified-account--v2.png"
+                alt="verified-account--v2"
+                style="position: absolute; right: 3%"
+              />
+            </div>
+            <p style="font-size: 10px">verified</p>
+          </div>
+        </div>
+        <div class="hr"></div>
+
+        {%endfor%}
+      </ul></span
+    >
+    {%else%} {%load static%}
+    <h1 style="font-size: 15px; color: rgb(0, 0, 0); padding: 12px">
+      No referrals yet, share your link
+    </h1>
+  </div>
+  {%endif%}
+
+  <br /><br /><br /><br /><br /><br />
+
+  <!-- Button trigger modal -->
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            Invitation Rules
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div style="padding: 3%">
+            <p>
+              For stability of funds, our Organization has come to an agreement
+              that there would be only one level referral i.e Users can only get
+              commissions and bonus from their direct referral.
+            </p>
+            <li>Invite Bonus are issued by the Customer Service.</li>
+            <li>
+              Make sure to tell your referrals to contact Customer Support after
+              purchasing a Macine, Bonus would be issued after verification.
+            </li>
+            <li>
+              Referrals must have purchased machine before any Commissions or
+              Bonus can be recieved.
+            </li>
+            <li>
+              Referrals are marked verified under active members once they
+              purchae a machine.Only contact Customer service for rewards once
+              your referral has been categorized as active.
+            </li>
+            <br />
+            <p>
+              Once verified, a one-time Commission of 18% of referrals first
+              Purchase would be issued and Users can get 10% daily commission of
+              referrals earning.
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{%endblock%}

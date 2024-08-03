@@ -1,0 +1,44 @@
+body {
+  height: fit-content;
+  background: rgb(244, 244, 244);
+}
+.login {
+  /* margin-top: 40%; */
+  margin-left: 3%;
+}
+label {
+  display: block;
+  font-size: 23px;
+  font-family: sans-serif;
+  padding-bottom: 2%;
+}
+input {
+  width: 82%;
+  outline: none;
+  border: none;
+  padding-left: 4%;
+  font-size: 20px;
+}
+.user {
+  display: flex;
+  border: 2px solid gray;
+  border-radius: 10px;
+  height: fit-content;
+  margin-bottom: 8%;
+  padding: 2%;
+  width: 90%;
+  background: white;
+}
+i {
+  padding-top: 1%;
+  color: rgb(26, 159, 53);
+}
+button {
+  width: 95%;
+  height: 40px;
+  font-size: 17px;
+  border-radius: 40px;
+  border: none;
+  background: rgb(26, 159, 53);
+  color: white;
+}

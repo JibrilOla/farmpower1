@@ -1,0 +1,40 @@
+{%extends 'records/base.html'%} {%block content%}{%load static%}
+<br />
+
+{%if mymachine%} {% for machine in mymachine %}
+<hr />
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    border-radius: 15px;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    padding-left: 3%;
+    padding: 4%;
+    height: min-content;
+  "
+>
+  <div style="display: flex; justify-content: space-between">
+    <div>
+      <img
+        width="50"
+        height="50"
+        src="https://img.icons8.com/ios/50/40C057/sales-balance.png"
+        alt="sales-balance"
+      />
+      <p>Total Income from : {{machine.machine_name}}</p>
+      <p>Purchase Date: {{machine.purchase_date}}</p>
+    </div>
+    <p>N{{machine.total}}</p>
+  </div>
+</div>
+<hr />
+
+{% endfor %}{%else%}
+<div style="display: flex; justify-content: center; width: 100%">
+  <img src="{%static 'cube.png' %}" alt="" width="70%" style="opacity: 80%" />
+</div>
+
+{%endif%} {%endblock%}

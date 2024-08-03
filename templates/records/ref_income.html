@@ -1,0 +1,37 @@
+{%extends 'records/base.html'%} {%block content%}{%load static%}
+<br />
+{%if ref_income %} {% for record in ref_income %}
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    border-radius: 13px;
+    font-size: 15px;
+    color: rgb(44, 44, 44);
+    padding: 2%;
+    height: min-content;
+  "
+>
+  <div style="display: flex; justify-content: space-between; width: 100%">
+    <p style="font-weight: 600">Amount: N{{record.amount}}</p>
+
+    <p style="font-size: 10px">Date: {{record.created_at}}</p>
+  </div>
+  <img
+    width="50"
+    height="50"
+    src="https://img.icons8.com/ios/50/40C057/buy-for-cash.png"
+    alt="buy-for-cash"
+  />
+  <br />
+  <p>
+    From: <span style="color: rgb(26, 159, 53)">{{record.user.username}}</span>
+  </p>
+</div>
+<hr />
+{% endfor %} {%else%}
+<div style="display: flex; justify-content: center; width: 100%">
+  <img src="{%static 'cube.png' %}" alt="" width="70%" style="opacity: 80%" />
+</div>
+{%endif%} {%endblock%}

@@ -1,0 +1,181 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+  </head>
+
+  <body>
+    <div style="display: flex; width: 100%; justify-content: center">
+      <img
+        src="{%static 'farm-logo.png' %}"
+        alt=""
+        style="width: 70%; opacity: 100%"
+      />
+    </div>
+    <div class="login">
+      <div style="font-family: sans-serif">
+        <h3 style="font-size: 30px">Welcome Back</h3>
+        <p style="font-size: 20px; color: gray">Please login to your account</p>
+      </div>
+      <form method="POST">
+        {% csrf_token %}
+
+        <div>
+          <tr>
+            <th><label for="id_username">Username:</label></th>
+            <td>
+              <div class="user">
+                <i class="fa fa-user-o fa-lg" aria-hidden="true"></i>
+                <input
+                  type="text"
+                  name="username"
+                  autofocus
+                  autocapitalize="none"
+                  autocomplete="username"
+                  maxlength="150"
+                  required
+                  id="id_username"
+                  placeholder="Username"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="id_password">Password:</label></th>
+            <td>
+              <div class="user">
+                <i class="fa fa-key fa-lg" aria-hidden="true"></i>
+                <input
+                  type="password"
+                  name="password"
+                  autocomplete="current-password"
+                  required
+                  id="id_password"
+                  placeholder="Password"
+                />
+              </div>
+            </td>
+          </tr>
+        </div>
+        <div class="button"><button type="submit">Login</button></div><p>Don't have an account? Get a referral link or contact customer care</p>
+      </form>
+       <img
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      width="50"
+      height="50"
+      style="
+        position: relative;
+        left: 3%;
+        top: 3%;
+        box-shadow: 0px 3px 5px black;
+      "
+      src="https://img.icons8.com/ios-filled/50/40C057/online-support.png"
+      alt="online-support"/>
+    
+  </body>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">CustomerService</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              padding: 3%;
+              justify-content: space-between;
+              height: 50%;
+            "
+          >
+            <hr />
+            <div style="height: 70px">
+              <a
+                href="https://wa.me/2348080957178"
+                style="
+                  display: flex;
+                  align-items: center;
+                  height: 100%;
+                  font-size: 20px;
+                  font-family: sans-serif;
+                  padding: 3%;
+                  text-decoration: none;
+                "
+              >
+                <img
+                  width="50"
+                  height="50"
+                  src="https://img.icons8.com/ios/50/40C057/whatsapp--v1.png"
+                  alt="whatsapp--v1"
+                />
+                <p style="color: rgb(65, 204, 72); padding-left: 3%">
+                  Whatsapp CS
+                </p>
+              </a>
+            </div>
+            <hr />
+            <div style="height: 70px">
+              <a
+                href="https://t.me/powerfarm_cs"
+                style="
+                  display: flex;
+                  align-items: center;
+                  height: 100%;
+                  font-size: 20px;
+                  font-family: sans-serif;
+                  padding: 3%;
+                  text-decoration: none;
+                "
+              >
+                <img
+                  width="50"
+                  height="50"
+                  src="https://img.icons8.com/dotty/80/40C057/telegram-app.png"
+                  alt="telegram-app"
+                />
+                <p style="color: rgb(65, 204, 72); padding-left: 3%">
+                  Telegram CS
+                </p>
+              </a>
+            </div>
+            <hr />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>

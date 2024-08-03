@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <style>
+    * {
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0%;
+      width: 100%;
+      height: fit-content;
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+
+  <div style="display: flex; margin-top: 2%; justify-content: space-between">
+    <a href="/dashboard">
+      <img
+        width="30"
+        src="https://img.icons8.com/windows/32/40C057/back.png"
+        alt="back"
+        style="padding-left: 1%"
+      />
+    </a>
+
+    <h2 style="padding-right: 6%">Withdrawal Record</h2>
+
+    <h2></h2>
+  </div>
+  {% if withdrawals %} {% for withdrawals in withdrawals %}
+  <hr />
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      font-family: sans-serif;
+      border-radius: 15px;
+      font-size: 15px;
+      color: rgb(0, 0, 0);
+      padding: 3%;
+
+      height: max-content;
+    "
+  >
+    <img
+      width="30"
+      src="https://img.icons8.com/ios/50/40C057/atm.png"
+      alt="atm"
+    />
+    <div style="display: flex; justify-content: space-between; width: 100%">
+      <p style="font-weight: 600">Amount: N{{withdrawals.withdrawal_amount}}</p>
+      <p>{{withdrawals.date_placed}}</p>
+    </div>
+    <br />
+    <p>
+      <span style="font-weight: 600">Status:</span>
+      <span style="color: green">{{withdrawals.status}}</span>
+    </p>
+    <br />
+    <div style="display: flex">
+      <img
+        width="30"
+        src="https://img.icons8.com/ios/50/1A1A1A/broker.png"
+        alt="broker"
+      />
+      <p style="padding-left: 3%">
+        <span style="font-weight: 600"
+          >{{withdrawals.account_holder_name}}</span
+        >
+        <br />{{withdrawals.bank_name}} {{withdrawals.account_number}}
+      </p>
+    </div>
+  </div>
+  <hr />
+
+  {% endfor %}{%else%}
+  <div style="display: flex; justify-content: center; width: 100%">
+    <img src="{%static 'cube.png' %}" alt="" width="70%" style="opacity: 80%" />
+  </div>
+
+  {%endif%}
+</html>

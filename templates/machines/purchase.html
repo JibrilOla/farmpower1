@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirm Purchase</title>
+  </head>
+  <body>
+    <section
+      style="
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border: 5px solid gray;
+        padding: 2%;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+      "
+    >
+      <img
+        width="50"
+        height="50"
+        src="https://img.icons8.com/ios/50/40C057/approval--v1.png"
+        alt="approval--v1"
+      />
+      <p>Confirm Purchase</p>
+
+      <div>
+        <p>Purchase Farm Machine: {{name}}</p>
+        <p>Price: {{price}}</p>
+        <p>Daily Income: {{income}}</p>
+      </div>
+      <div
+        class="buttons"
+        style="
+          width: 60%;
+          display: flex;
+          justify-content: center;
+          justify-content: space-between;
+        "
+      >
+        <a href="/products">
+          <button
+            style="
+              font-family: sans-serif;
+              margin-top: 4%;
+              height: 40px;
+              width: 100px;
+              font-size: 17px;
+              border-radius: 40px;
+              border: none;
+              background: rgb(255, 0, 0);
+              color: white;
+            "
+          >
+            Cancel
+          </button>
+        </a>
+        <a href="/purchase/{{price}}/{{income}}/{{name}}"
+          ><button
+            style="
+              font-family: sans-serif;
+              margin-top: 4%;
+              height: 40px;
+              width: 100px;
+              font-size: 17px;
+              border-radius: 40px;
+              border: none;
+              background: rgb(26, 159, 53);
+              color: white;
+            "
+          >
+            Confirm
+          </button></a
+        >
+      </div>
+    </section>
+  </body>
+</html>

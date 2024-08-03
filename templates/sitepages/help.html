@@ -1,0 +1,300 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help</title>
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+  </head>
+  <style>
+    * {
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 2%;
+      width: 100%;
+      height: fit-content;
+      background-color: white;
+    }
+  </style>
+  <body>
+    <div style="display: flex; margin-top: 2%; justify-content: space-between">
+      <a href="/dashboard">
+        <img
+          width="30"
+          src="https://img.icons8.com/windows/32/40C057/back.png"
+          alt="back"
+          style="padding-left: 1%"
+        />
+      </a>
+
+      <h2 style="padding-right: 6%">Help</h2>
+
+      <h2></h2>
+    </div>
+
+    <p
+      data-bs-toggle="modal"
+      data-bs-target="#recharge"
+      style="font-size: 20px; color: rgb(14, 161, 17)"
+    >
+      How to Recharge?
+    </p>
+    <p
+      data-bs-toggle="modal"
+      data-bs-target="#withdraw"
+      style="font-size: 20px; color: rgb(14, 161, 17)"
+    >
+      How to place Withdrawal?
+    </p>
+    <p
+      data-bs-toggle="modal"
+      data-bs-target="#invite"
+      style="font-size: 20px; color: rgb(14, 161, 17)"
+    >
+      About Invitaion?
+    </p>
+    <p
+      data-bs-toggle="modal"
+      data-bs-target="#machine"
+      style="font-size: 20px; color: rgb(14, 161, 17)"
+    >
+      How to purchase Machine?
+    </p>
+    <p
+      data-bs-toggle="modal"
+      data-bs-target="#income"
+      style="font-size: 20px; color: rgb(14, 161, 17)"
+    >
+      How to Recieve Income?
+    </p>
+
+    <br />
+    <p style="font-size: 14px; color: rgb(0, 0, 0)">
+      If the help you need is not listed contact
+      <a
+        href="/customerservice"
+        style="text-decoration: none; font-size: 14px; color: rgb(14, 161, 17)"
+        >Customer Service</a
+      >
+    </p>
+  </body>
+
+  <!-- Button trigger modal -->
+
+  <!-- Recharge Modal -->
+  <div
+    class="modal fade"
+    id="recharge"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            How to Recharge
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <img src="{%static 'recharge.jpg' %}" alt="" class="img-fluid" />
+          <p>1. Navigate to your Dashboard, then click on Recharge Button</p>
+          <p>
+            2. Input amount and your E-mail address. (take notes of the
+            warnings)
+          </p>
+          <p>3. Confirm your recharge</p>
+
+          <img src="{%static 'recharge2.jpg' %}" alt="" class="img-fluid" />
+
+          <p>4. Select Payment Method</p>
+          <p>
+            5. Make Payment via your selected method and wait for confirmation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Withdraw Modal -->
+  <div
+    class="modal fade"
+    id="withdraw"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            How to Withdraw
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <img src="{%static 'withdraw.jpg' %}" alt="" class="img-fluid" />
+          <p>1. Navigate to Dashboard and click the Withdraw Button.</p>
+          <p>2. Input all required fields correctly</p>
+          <p>3. Proceed and wait for your withdrawal to be processed</p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Machine Modal -->
+  <div
+    class="modal fade"
+    id="machine"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            How to Purchase Machine
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <img src="{%static 'purchase.jpg' %}" alt="" class="img-fluid" />
+          <p>1. Navigate to Machines</p>
+          <p>2. Select Machine to purchase and confirm your purchase</p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Income Modal -->
+  <div
+    class="modal fade"
+    id="income"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            How to Recieve Income
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <img src="{%static 'recieve.jpg' %}" alt="" class="img-fluid" />
+          <p>1. Navigate to Dashbord and click on 'My machines'.</p>
+          <p>2. Recieve income from all your Machines.</p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Invitation Modal -->
+  <div
+    class="modal fade"
+    id="invite"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            Invitation Rules
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div style="padding: 3%">
+            <p>
+              For stability of funds, our Organization has come to an agreement
+              that there would be only one level referral i.e Users can only get
+              commissions and bonus from their direct referral.
+            </p>
+            <li>Invite Bonus are issued by the Customer Service.</li>
+            <li>
+              Make sure to tell your referrals to contact Customer Support after
+              purchasing a Macine, Bonus would be issued after verification.
+            </li>
+            <li>
+              Referrals must have purchased machine before any Commissions or
+              Bonus can be recieved.
+            </li>
+            <li>
+              Referrals are marked verified under active members once they
+              purchae a machine.Only contact Customer service for rewards once
+              your referral has been categorized as active.
+            </li>
+            <br />
+            <p>
+              Once verified, a one-time Commission of 18% of referrals first
+              Purchase would be issued and Users can get 10% daily commission of
+              referrals earning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>

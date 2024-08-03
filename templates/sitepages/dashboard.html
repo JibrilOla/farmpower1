@@ -1,0 +1,461 @@
+{%extends 'sitepages/site_base.html'%} {%block homepage_content%}
+
+<style>
+  .hr {
+    border-top: 2px solid rgb(22, 192, 64);
+    width: 100%;
+  }
+</style>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+<header style="background-color: rgb(244, 244, 244)">
+  <div style="display: flex; padding-left: 3%">
+    <img
+      width="30"
+      height="30"
+      style="margin-top: 1%"
+      src="https://img.icons8.com/ios/50/user-male-circle--v1.png"
+      alt="user-male-circle--v1"
+    />
+    <h3 style="margin-top: 1%">: {{request.user}}</h3>
+  </div>
+  {%load static%}
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    "
+  >
+    <img
+      src="https://thumbs.dreamstime.com/b/man-farmer-icon-holding-rich-harvest-hands-logotype-store-agricultural-products-vegetable-market-natural-organic-91548073.jpg"
+      alt=""
+      style="width: 25%; border-radius: 50%"
+    />
+    <div>
+      <h3 style="text-align: center; font-size: 25px">Balance:</h3>
+      <p
+        style="
+          text-align: center;
+          font-size: 30px;
+          font-weight: 600;
+          font-family: Arial, Helvetica, sans-serif;
+        "
+      >
+        {{balance}}.00
+      </p>
+    </div>
+    <br />
+    <!--  -->
+    <div
+      style="
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        border: 2px solid gray;
+        padding: 6%;
+        border-bottom: none;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        color: rgb(85, 84, 84);
+        background-color: white;
+        font-weight: 600;
+      "
+    >
+      <span>
+        <span style="text-align: center">Total Recharge:</span>
+        <p
+          style="
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: Arial, Helvetica, sans-serif;
+          "
+        >
+          {{total_recharge}}.00
+        </p>
+      </span>
+      <span>
+        <span style="text-align: center">Total Income:</span>
+        <p
+          style="
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: Arial, Helvetica, sans-serif;
+          "
+        >
+          {{total_income}}.00
+        </p>
+      </span>
+    </div>
+    <!--  -->
+    <div
+      style="
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        border: 2px solid gray;
+        border-top: none;
+        font-weight: 600;
+        padding-left: 4%;
+        padding-right: 4%;
+        padding-bottom: 6%;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        color: rgb(85, 84, 84);
+        background-color: white;
+      "
+    >
+      <span>
+        <span style="text-align: center">Expenditure:</span>
+        <p
+          style="
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: Arial, Helvetica, sans-serif;
+          "
+        >
+          {{total_revenue}}.00
+        </p>
+      </span>
+      <span>
+        <span style="text-align: center">Total Withdraw:</span>
+        <p
+          style="
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: Arial, Helvetica, sans-serif;
+          "
+        >
+          {{total_withdrawn}}.00
+        </p>
+      </span>
+    </div>
+    <!--  -->
+    <div
+      style="
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-content: space-between;
+        margin-top: 10%;
+      "
+    >
+      <a href="/initiate-payment" style="text-decoration: none; width: 45%">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            background: green;
+            justify-content: center;
+            border-radius: 10px;
+          "
+        >
+          <img
+            width="20%"
+            style="margin: 5%"
+            src="https://img.icons8.com/ios/50/FFFFFF/request-money.png"
+          />
+          <p
+            style="
+              font-family: sans-serif;
+              color: rgb(255, 255, 255);
+              font-size: 17px;
+              margin-right: 5%;
+              font-weight: 600;
+              margin-top: 10%;
+            "
+          >
+            Recharge
+          </p>
+        </div>
+      </a>
+
+      <a href="/withdraw" style="text-decoration: none; width: 45%">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            background: green;
+            justify-content: center;
+            border-radius: 10px;
+          "
+        >
+          <p
+            style="
+              font-family: sans-serif;
+              color: rgb(255, 255, 255);
+              font-size: 17px;
+              font-weight: 600;
+              margin-left: 5%;
+              margin-top: 10%;
+            "
+          >
+            Withdraw
+          </p>
+          <img
+            width="20%"
+            style="margin: 5%"
+            src="https://img.icons8.com/ios/50/FFFFFF/initiate-money-transfer.png"
+            alt="initiate-money-transfer"
+          />
+        </div>
+      </a>
+    </div>
+  </div>
+  <br /><br />
+</header>
+
+<!-- USER MANAGEMENT -->
+<section
+  style="
+    height: fit-content;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    background-color: rgb(244, 244, 244);
+  "
+>
+  <a href="/mymachine" style="text-decoration: none">
+    <div
+      style="
+        padding: 3%;
+        background-color: white;
+        color: rgb(0, 0, 0);
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+      "
+    >
+      <div style="display: flex; width: 100%">
+        <img
+          width="30"
+          height="30"
+          src="https://img.icons8.com/ios/50/40C057/gears--v1.png"
+          alt="gears--v1"
+        />
+        <p style="color: black; padding-left: 3%; font-size: 20px">
+          My Machines
+        </p>
+      </div>
+      <img
+        width="30"
+        height="30"
+        src="https://img.icons8.com/ios/50/40C057/forward--v1.png"
+        alt="forward--v1"
+      />
+    </div>
+  </a>
+  <div class="hr"></div>
+
+  <a href="/rechargerecord" style="text-decoration: none">
+    <div
+      style="
+        padding: 3%;
+        background-color: white;
+        color: rgb(0, 0, 0);
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+      "
+    >
+      <div style="display: flex; width: 100%">
+        <img
+          width="30"
+          height="30"
+          src="https://img.icons8.com/ios/50/40C057/initiate-money-transfer.png"
+          alt="initiate-money-transfer"
+        />
+        <p
+          style="
+            color: black;
+            padding-left: 3%;
+
+            font-size: 20px;
+          "
+        >
+          Recharge Record
+        </p>
+      </div>
+
+      <img
+        width="30"
+        height="30"
+        src="https://img.icons8.com/ios/50/40C057/forward--v1.png"
+        alt="forward--v1"
+      />
+    </div>
+  </a>
+  <div class="hr"></div>
+  <a href="/wrecord" style="text-decoration: none">
+    <div
+      style="
+        padding: 3%;
+        background-color: white;
+        color: rgb(0, 0, 0);
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+      "
+    >
+      <div style="display: flex; width: 100%">
+        <img
+          width="30"
+          height="30"
+          src="https://img.icons8.com/ios/50/40C057/request-money.png"
+          alt="request-money"
+        />
+        <p style="color: black; padding-left: 3%; font-size: 20px">
+          Withdrawal Record
+        </p>
+      </div>
+      <img
+        width="30"
+        height="30"
+        src="https://img.icons8.com/ios/50/40C057/forward--v1.png"
+        alt="forward--v1"
+      />
+    </div>
+  </a>
+  <div class="hr"></div>
+  <a href="/ttincome" style="text-decoration: none">
+    <div
+      style="
+        padding: 3%;
+        background-color: white;
+        color: rgb(0, 0, 0);
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+      "
+    >
+      <div style="display: flex; width: 100%">
+        <img
+          width="30"
+          height="30"
+          src="https://img.icons8.com/ios/50/40C057/receive-euro.png"
+          alt="receive-euro"
+        />
+        <p style="color: black; font-size: 20px; padding-left: 3%">
+          Income Record
+        </p>
+      </div>
+      <img
+        width="30"
+        height="30"
+        src="https://img.icons8.com/ios/50/40C057/forward--v1.png"
+        alt="forward--v1"
+      />
+    </div>
+  </a>
+  <div class="hr"></div>
+  <a href="/customerservice" style="text-decoration: none">
+    <div
+      style="
+        padding: 3%;
+        background-color: white;
+        color: rgb(0, 0, 0);
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+      "
+    >
+      <div style="display: flex; width: 100%">
+        <img
+          width="30"
+          height="30"
+          src="https://img.icons8.com/ios/50/40C057/headset--v1.png"
+          alt="headset--v1"
+        />
+        <p style="color: black; padding-left: 3%; font-size: 20px">
+          Customer Service
+        </p>
+      </div>
+      <img
+        width="30"
+        height="30"
+        src="https://img.icons8.com/ios/50/40C057/forward--v1.png"
+        alt="forward--v1"
+      />
+    </div>
+  </a>
+  <div class="hr"></div>
+  <a href="/help" style="text-decoration: none">
+    <div
+      style="
+        padding: 3%;
+        background-color: white;
+        color: rgb(0, 0, 0);
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+      "
+    >
+      <div style="display: flex; width: 100%">
+        <img
+          width="30"
+          height="30"
+          src="https://img.icons8.com/ios/50/40C057/help--v1.png"
+          alt="help--v1"
+        />
+        <p style="color: black; padding-left: 3%; font-size: 20px">Help</p>
+      </div>
+      <img
+        width="30"
+        height="30"
+        src="https://img.icons8.com/ios/50/40C057/forward--v1.png"
+        alt="forward--v1"
+      />
+    </div>
+  </a>
+  <div class="hr"></div>
+  <a href="/logout" style="text-decoration: none">
+    <div
+      style="
+        padding: 3%;
+        background-color: white;
+        color: rgb(0, 0, 0);
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+      "
+    >
+      <div style="display: flex; width: 100%">
+        <img
+          width="30"
+          height="30"
+          src="https://img.icons8.com/ios/50/ff0000/exit--v1.png"
+          alt="exit--v1"
+        />
+        <p style="color: rgb(255, 0, 0); padding-left: 3%; font-size: 20px">
+          Logout
+        </p>
+      </div>
+      <img
+        width="30"
+        height="30"
+        src="https://img.icons8.com/ios/50/40C057/forward--v1.png"
+        alt="forward--v1"
+      />
+    </div>
+  </a>
+  <div class="hr"></div>
+
+  <br /><br /><br /><br />
+</section>
+{%endblock%}

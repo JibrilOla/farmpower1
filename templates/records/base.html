@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Income</title>
+  </head>
+  <style>
+    * {
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0%;
+      width: 100%;
+      height: fit-content;
+      background-color: white;
+    }
+  </style>
+  <body>
+    <div style="display: flex; margin-top: 2%; justify-content: space-between">
+      <a href="/dashboard">
+        <img
+          width="30"
+          src="https://img.icons8.com/windows/32/40C057/back.png"
+          alt="back"
+          style="padding-left: 1%"
+        />
+      </a>
+
+      <h2 style="padding-right: 6%">Income Record</h2>
+
+      <h2></h2>
+    </div>
+    <br />
+
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        justify-content: center;
+        font-size: 17px;
+        font-family: sans-serif;
+      "
+    >
+      {%if request.path == '/ttincome/' %}
+      <a
+        href="/ttincome"
+        style="
+          width: 30%;
+          text-align: center;
+          text-decoration: underline;
+          color: rgb(8, 174, 25);
+        "
+      >
+        <p>Machine Income</p>
+      </a>
+      {%else%}
+      <a
+        href="/ttincome"
+        style="
+          width: 30%;
+          text-align: center;
+          text-decoration: none;
+          color: black;
+        "
+      >
+        <p>Machine Income</p>
+      </a>
+
+      {%endif%} {%if request.path == '/ref-income/' %}
+
+      <a
+        href="/ref-income"
+        style="
+          width: 30%;
+          text-align: center;
+          text-decoration: underline;
+          color: rgb(8, 174, 25);
+        "
+      >
+        <p>Referral Commissions</p>
+      </a>
+      {%else%}
+      <a
+        href="/ref-income"
+        style="
+          width: 30%;
+          text-align: center;
+          text-decoration: none;
+          color: black;
+        "
+      >
+        <p>Referral Commissions</p>
+      </a>
+      {%endif%}
+
+      <a
+        href=""
+        style="
+          width: 30%;
+          text-align: center;
+          text-decoration: none;
+          color: black;
+        "
+      >
+        <p>Bonus</p>
+      </a>
+    </div>
+    {%block content%} {%endblock%}
+  </body>
+</html>
