@@ -1,4 +1,4 @@
-python-dotenv==0.21.0
+
 asgiref==3.8.1
 beautifulsoup4==4.12.3
 certifi==2024.7.4
@@ -12,6 +12,5 @@ soupsieve==2.5
 sqlparse==0.5.1
 tzdata==2024.1
 urllib3==2.2.2
-psycopg2-binary==2.9.5
-dj-database-url==1.2.0
+
 
